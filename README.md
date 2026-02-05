@@ -1,35 +1,40 @@
-# Service Delivery App (Full MVP Core)
+# Service Delivery App (Cordova-style: HTML/CSS/JS + `api.php`)
 
-Implemented a complete **domain-level app core** for Admin, User, and Service Partner workflows.
+This project now uses a simple Cordova-friendly stack:
+- Frontend in `www/` (HTML, CSS, JavaScript)
+- Backend API in `api.php`
+- JSON-file persistence in `data/store.json`
 
-## What is included
+## Project structure
 
-- **Admin module**
-  - Provider onboarding and status management
-  - Category, service, and coupon setup
-  - Manual booking assignment
-  - Revenue reporting
-- **User module**
-  - User signup
-  - Booking creation with coupon-based discount calculation
-  - User booking history
-- **Service Partner module**
-  - Accept / start / complete assigned jobs
-  - Earnings accumulation from completed jobs
+- `www/index.html` – UI shell for admin/user/partner demo actions
+- `www/style.css` – basic app styling
+- `www/app.js` – fetch-based API calls to `api.php`
+- `api.php` – REST-like action API
 
-## Main entrypoint
-
-Use `ServiceDeliveryApp` from `app.main`.
-
-```python
-from app.main import ServiceDeliveryApp
-
-app = ServiceDeliveryApp()
-user = app.signup_user("Asha", "8888888888")
-```
-
-## Run tests
+## Run locally
 
 ```bash
-pytest -q
+php -S 127.0.0.1:8080
 ```
+
+Then open:
+- `http://127.0.0.1:8080/www/index.html`
+
+## API actions (examples)
+
+- `GET /api.php?action=health`
+- `POST /api.php?action=signup_user`
+- `POST /api.php?action=add_provider`
+- `POST /api.php?action=approve_provider`
+- `POST /api.php?action=add_category`
+- `POST /api.php?action=add_service`
+- `POST /api.php?action=add_coupon`
+- `POST /api.php?action=create_booking`
+- `POST /api.php?action=assign_booking`
+- `POST /api.php?action=partner_update_status`
+- `GET /api.php?action=revenue_report`
+
+## Cordova integration note
+
+In Cordova, keep `www/` as your app web assets and point `API_BASE` in `www/app.js` to your hosted PHP endpoint.
