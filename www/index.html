@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Service Delivery - Cordova MVP</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Service Delivery App (Cordova MVP)</h1>
+      <p>HTML + CSS + JS frontend using <code>api.php</code>.</p>
+    </header>
+
+    <main>
+      <section class="card">
+        <h2>Admin Setup</h2>
+        <button id="seedBtn">Seed Demo Data</button>
+        <button id="reportBtn">Revenue Report</button>
+      </section>
+
+      <section class="card">
+        <h2>User Booking</h2>
+        <form id="bookingForm">
+          <label>Name <input name="name" required value="Asha" /></label>
+          <label>Phone <input name="phone" required value="8888888888" /></label>
+          <label>Address <input name="address" required value="123 Main St" /></label>
+          <label>Slot <input name="slot" required value="2026-02-06T10:00:00" /></label>
+          <button type="submit">Create Booking</button>
+        </form>
+      </section>
+
+      <section class="card">
+        <h2>Partner Actions</h2>
+        <button id="acceptBtn">Accept Latest Assigned</button>
+        <button id="startBtn">Start Latest Assigned</button>
+        <button id="completeBtn">Complete Latest Assigned</button>
+      </section>
+
+      <section class="card">
+        <h2>Output</h2>
+        <pre id="output"></pre>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
